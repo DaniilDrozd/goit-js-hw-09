@@ -9,20 +9,23 @@ let intervalId = null;
   btnStart.addEventListener('click',StartSwColor);
   btnStop.addEventListener('click',StopSwColor);
 
-
   function StartSwColor(){
     btnStart.disabled = true;
     btnStop.disabled = false;
-    intervalId = setInterval( getRandomHexColor,1000);
+    intervalId = setInterval( changeColor,1000);
 }
-  
- function StopSwColor(){
+
+function changeColor() {
+    bodyColor.style.backgroundColor = getRandomHexColor();
+  }
+
+  function StopSwColor() {
     btnStart.disabled = false;
     btnStop.disabled = true;
-
+  
     clearInterval(intervalId);
- }
+  }
 
- function getRandomHexColor() {
+  function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
   }
