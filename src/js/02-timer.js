@@ -45,10 +45,9 @@ const updateTimer = () => {
   dataHours.textContent = addLeadingZero(hours);
   dataMinutes.textContent = addLeadingZero(minutes);
   dataSeconds.textContent = addLeadingZero(seconds);
-  if (timeToFinish < 1000) {
-    [days, hours, minutes, seconds].forEach(item =>
-      item.classList.toggle('кінець')
-    );
+
+  if (timeToFinish <= 1000) {
+    value.forEach(item => item.classList.add('кінець'));
     clearInterval(timerId);
     datetime.disabled = false;
   }
