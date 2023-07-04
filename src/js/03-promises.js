@@ -9,7 +9,7 @@ function onSubmitForm(event) {
   const step = Number(form.step.value);
   const amount = Number(form.amount.value);
   let currentDelay = 0;
-  for (let i = 1; i <= form.amount.value; i += 1) {
+  for (let i = 1; i <= amount; i += 1) {
     const position = i;
     createPromise(position, delay)
       .then(({ position, delay }) => {
